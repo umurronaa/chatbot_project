@@ -92,3 +92,58 @@ Create a credentials.env file and add your API keys:
 
 ## Demo Video
 A detailed demonstration of the chatbot, including the "See Raw Data" feature which shows the retrieved context from ChromaDB, can be found [video/demo_video.mp4].
+
+## Implementation Methodology
+This project implements a Retrieval-Augmented Generation (RAG) architecture to provide accurate travel information based on a curated European Travel Guide dataset. The development process is divided into four main stages:
+
+1. Data Ingestion & Preprocessing
+
+    Source Dataset: A structured Excel file containing 1,000 question-answer pairs regarding European destinations, cuisines, and logistics.
+
+    Chunking Strategy: Utilizing LangChain's DataFrameLoader, each row is transformed into a discrete Document object. The "Question" column serves as the page_content (primary searchable index), while the "Answer" and "Intent" columns are preserved as metadata.
+
+    Data Splitting: To ensure unbiased evaluation, the dataset was split into 80% Training and 20% Testing sets using a stratified split to maintain consistent intent distribution across both sets.
+
+2. Vectorization & Vector Store (Embedding)
+
+Two parallel embedding pipelines were established for comparative analysis:
+
+    OpenAI Pipeline: Utilizing the text-embedding-3-small model for generating high-dimensional dense vectors stored in a ChromaDB instance.
+
+    Google Pipeline: Utilizing the models/text-embedding-004 (Gemini) model for vectorization and storage in a separate ChromaDB instance.
+
+    Search Mechanism: The system utilizes a Semantic Search approach by configuring the retriever with search_type="similarity". Instead of relying on traditional keyword matching, this mechanism compares the vector embedding of the user's query against the stored document embeddings. By retrieving the top-k most relevant matches based on vector proximity, the system can understand the underlying context and provide accurate information even when the user's phrasing differs from the source text.
+
+3. RAG Chain Architecture
+
+The core logic is built using LCEL (LangChain Expression Language), creating a modular pipeline:
+
+    Retriever: Fetches the top 6 most relevant documents (k=6) from the vector store based on the user's query.
+
+    Prompt Template: Orchestrates a specialized system prompt that instructs the LLM to remain faithful to the retrieved context and avoid hallucinations.
+
+    LLM Processing: gpt-4.1-mini and gemini-2.5-flash act as the reasoning engines, synthesizing the retrieved information into a natural language response.
+
+    Output Parser: Standardizes the raw model output into a clean string format for the UI.
+
+4. Evaluation Framework
+
+Performance was quantified using a rigorous classification-based approach:
+
+    Intent Classification Test: The test set was processed through the retriever with k=1. The predicted intent (from the retrieved document's metadata) was compared against the ground truth.
+
+    Quantitative Metrics: Performance was measured using Precision, Recall, and F1-Score.
+
+    Efficiency Metrics: Average Response Time (Latency) was tracked for both models to evaluate real-world usability.
+
+## Interactive UI & Real-Time Comparison (Streamlit)
+
+The project features a web-based dashboard built with Streamlit, designed for side-by-side model comparison and real-time interaction.
+
+    Dual-Chain Execution: The application runs both OpenAI and Google RAG chains simultaneously for every user query, allowing for an immediate comparative analysis of the outputs.
+
+    Performance Tracking: Each response is accompanied by a "Response Time" metric, providing data on the latency of each model ecosystem.
+
+    State Management & Optimization: Using the @st.cache_resource decorator, the application ensures that heavy resources like Vector DBs and LLM connections are loaded only once, significantly improving performance for subsequent queries.
+
+    Debug Mode (Explainability): A dedicated sidebar displays the Retrieved Documents (raw context) for both models. This feature provides transparency into which specific data points were selected by the retriever, aligning the project with Explainable AI (XAI) principles.

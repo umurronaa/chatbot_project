@@ -8,7 +8,6 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnablePassthrough
 from langchain_core.output_parsers import StrOutputParser
 from langchain_openai import ChatOpenAI
-import joblib
 
 load_dotenv("credentials.env")
 api_key_openai = os.getenv("OPENAI_API_KEY")
