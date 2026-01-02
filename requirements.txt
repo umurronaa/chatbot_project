@@ -2,5 +2,7 @@ langchain_community==0.4.1
 langchain_core==1.2.5
 langchain_google_genai==4.1.2
 langchain_openai==1.1.6
+pandas==2.3.3
 python-dotenv==1.2.1
+scikit_learn==1.8.0
 streamlit==1.52.2

@@ -10,7 +10,7 @@ from langchain_community.document_loaders import DataFrameLoader
 
 load_dotenv("credentials.env")
 
-df = pd.read_excel("avrupa_gezi_rehberi_1000.xlsx")
+df = pd.read_excel("data/avrupa_gezi_rehberi_1000.xlsx")
 
 loader = DataFrameLoader(df, page_content_column="Question")
 our_documents = loader.load()
@@ -53,4 +53,4 @@ google_rag_chain = (
 )
 
 print("--- Gemini 2.5-Flash RESULT ---")
-print(google_rag_chain.invoke("Roma'da ne yenir?"))
+print(google_rag_chain.invoke("Hoşca kal"))

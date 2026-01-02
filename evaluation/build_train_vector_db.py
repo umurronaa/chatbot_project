@@ -11,7 +11,7 @@ load_dotenv("credentials.env")
 # ---------------------------
 # LOAD DATASET
 # ---------------------------
-df = pd.read_excel("avrupa_gezi_rehberi_1000.xlsx")
+df = pd.read_excel("data/avrupa_gezi_rehberi_1000.xlsx")
 df.columns = df.columns.str.strip().str.lower()
 
 train_df, test_df = train_test_split(
@@ -54,5 +54,5 @@ vector_db.persist()
 # ---------------------------
 test_df.to_csv("test_set.csv", index=False)
 
-print("✅ Vector DB created with TRAIN set only")
-print("✅ Test set saved as test_set.csv")
+print("Vector DB created with TRAIN set only")
+print("Test set saved as test_set.csv")

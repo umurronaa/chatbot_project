@@ -13,7 +13,7 @@ import joblib
 load_dotenv("credentials.env")
 api_key_openai = os.getenv("OPENAI_API_KEY")
 
-df = pd.read_excel("avrupa_gezi_rehberi_1000.xlsx")
+df = pd.read_excel("data/avrupa_gezi_rehberi_1000.xlsx")
 
 loader = DataFrameLoader(df, page_content_column="Question")
 our_documents = loader.load()
