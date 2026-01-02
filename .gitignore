@@ -1,0 +1,29 @@
+# Experimental / notebooks
+deneme.ipynb
+project_gemini.ipynb
+project_openai.ipynb
+streamlit_app.ipynb
+# Environment & secrets
+env/
+venv/
+credentials.env
+*.env
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Vector databases & models
+gezi_db_google/
+gezi_db_openai/
+gezi_db_train/
+*.joblib
+
+# OS files
+.DS_Store
+
+# Jupyter
+.ipynb_checkpoints/
+
+dataset_prep.ipynb
+test_set.csv
