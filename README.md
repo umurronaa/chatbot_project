@@ -69,33 +69,8 @@ A strict evaluation setup was used where:
 
 | Model | Average Response Time (s) |
 |------|---------------------------|
-| **OpenAI (gpt-4.1-mini)** | **6.53** |
-| **Google (gemini-2.5-flash)** | **17.71** |
-
-## Technical Analysis of Results
-
-### Intent Classification Performance
-Both models demonstrated strong performance in intent classification, achieving high Precision, Recall, and F1 scores across all intent categories. This indicates that the embedding-based similarity retrieval approach is effective in mapping user queries to the correct semantic intent when trained on a well-structured and domain-specific dataset.
-
-The use of a strict train/test separation and k=1 retrieval ensured that predictions were not influenced by duplicate or near-duplicate samples, providing a reliable evaluation of generalization performance.
-
----
-
-### Error Distribution and Class Imbalance
-Minor performance differences across intent classes can be attributed to class imbalance and semantic overlap between certain intents (e.g., *greeting* vs. *goodbye*). However, confusion matrix analysis shows that misclassifications are limited and do not follow a systematic pattern, suggesting robust intent separation in the embedding space.
-
----
-
-### Model Efficiency and Latency
-In terms of response time, OpenAI (gpt-4.1-mini) consistently outperformed Google (gemini-2.5-flash). This difference is primarily due to model inference speed and API response latency rather than retrieval overhead, as both models share the same vector database and retrieval pipeline.
-
----
-
-### Implications for RAG-Based Systems
-These results highlight that, for intent-driven RAG applications, retrieval quality and embedding alignment play a more critical role than the choice of generative model. Once the correct intent is retrieved, both LLMs are capable of producing semantically accurate and contextually appropriate responses.
-
-Therefore, optimizing dataset quality, intent coverage, and embedding strategies can yield greater performance gains than switching between comparable LLM architectures.
-
+| **OpenAI (gpt-4.1-mini)** | **1.48** |
+| **Google (gemini-2.5-flash)** | **1.74** |
 
 ## How to Run
 1. Clone the repository
