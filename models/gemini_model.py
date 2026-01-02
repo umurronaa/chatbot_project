@@ -53,4 +53,4 @@ google_rag_chain = (
 )
 
 print("--- Gemini 2.5-Flash RESULT ---")
-print(google_rag_chain.invoke("Hoşca kal"))
+print(google_rag_chain.invoke("Viyana'da ne yenir?"))

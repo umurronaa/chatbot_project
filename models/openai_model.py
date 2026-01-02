@@ -53,7 +53,7 @@ openai_rag_chain = (
     | output_parser
 )
 
-question = "Roma'da ne yenir?"
+question = "Viyana'da ne yenir?"
 openai_answer = openai_rag_chain.invoke(question)
 
 print("--- OpenAI (GPT-4.1-mini) Result ---")

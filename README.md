@@ -39,6 +39,7 @@ chatbot_project/
 ├── video/
 │   └── demo_video.mp4                     # Demo video
 ├── README.md                              # Project documentation
+├── Smart Travel Guide.pdf                              
 └── requirements.txt                       # Dependency list
 
 ## Performance Metrics & Benchmarking
