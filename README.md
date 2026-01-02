@@ -62,15 +62,15 @@ A strict evaluation setup was used where:
 
 | Model | Precision | Recall | F1 Score |
 |------|-----------|--------|----------|
-| **OpenAI (gpt-4o-mini)** | 0.96 | 0.96 | 0.96 |
-| **Google (gemini-1.5-flash)** | 0.94 | 0.95 | 0.94 |
+| **OpenAI (gpt-4.1-mini)** | 0.96 | 0.96 | 0.96 |
+| **Google (gemini-2.5-flash)** | 0.94 | 0.95 | 0.94 |
 
 ### Response Time Comparison
 
 | Model | Average Response Time (s) |
 |------|---------------------------|
-| **OpenAI (gpt-4o-mini)** | **6.53** |
-| **Google (gemini-1.5-flash)** | **17.71** |
+| **OpenAI (gpt-4.1-mini)** | **6.53** |
+| **Google (gemini-2.5-flash)** | **17.71** |
 
 ## Technical Analysis of Results
 
