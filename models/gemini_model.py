@@ -24,7 +24,7 @@ google_vector_db = Chroma.from_documents(
 )
 
 google_retriever = google_vector_db.as_retriever(
-    search_type="mmr",
+    search_type="similarity",
     search_kwargs={'k': 6}
 )
 
