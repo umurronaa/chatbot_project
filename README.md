@@ -37,7 +37,7 @@ chatbot_project/
 ├── app/
 │   └── streamlit_app.py                  # Streamlit user interface
 ├── video/
-│   └── demo_video.mp4                     # Demo video
+│   └── demo_video.mov                     # Demo video
 ├── README.md                              # Project documentation
 ├── Smart Travel Guide.pdf                              
 └── requirements.txt                       # Dependency list
