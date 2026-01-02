@@ -24,6 +24,7 @@ The system follows a standard RAG pipeline:
 
 ## Repository Structure
 The project is organized according to the specified directory structure:
+```text
 chatbot_project/
 ├── data/
 │   └── avrupa_gezi_rehberi_1000.xlsx      # Custom dataset
@@ -36,9 +37,9 @@ chatbot_project/
 ├── app/
 │   └── streamlit_app.py                  # Streamlit user interface
 ├── video/
-│   └── demo_video.mp4
-├── README.md                             # Project documentation
-└── requirements.txt                     # Dependency list
+│   └── demo_video.mp4                     # Demo video
+├── README.md                              # Project documentation
+└── requirements.txt                       # Dependency list
 
 ## Performance Metrics & Benchmarking
 The models were evaluated using intent-level classification metrics rather than 
